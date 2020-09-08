@@ -29,6 +29,13 @@
 
 (set-frame-parameter nil 'unsplittable t)
 
+;; git/sudoのpassward入力を隠す
+(add-hook 'shell-mode-hook
+          #'(lambda ()
+              (setq comint-password-prompt-regexp
+                    (replace-regexp-in-string "for \\[\\^:\\]\\+" "for .+" "\[sudo\].+:"
+                                              comint-password-prompt-regexp t t))))
+
 ;;補完
 (ido-mode 1)
 (ido-everywhere 1)
