@@ -34,7 +34,7 @@
           #'(lambda ()
               (setq comint-password-prompt-regexp
                     (concat comint-password-prompt-regexp
-                            "\\|^\\[sudo\\].+:\'"))))
+                            "\\|^\\[sudo\\].+:"))))
 
 ;;補完
 (ido-mode 1)
