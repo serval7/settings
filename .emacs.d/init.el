@@ -40,6 +40,7 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (setq ido-enable-flex-matching t) ;; 中間/あいまい一致
+(setq ido-show-dot-for-dired t)
 
 ;;yes/no -> y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -161,6 +162,7 @@
 ;;undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode t)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 ;; カッコ補完
 (require 'smartparens-config)
