@@ -10,19 +10,27 @@
 ;; 初期化
 (package-initialize)
 
+;;popwin
+;;sudo-edit
+;;undo-tree
+;;smartparens
+;;magit
+;;git-gutter
+;;
+
 ;;load-path追加
-(setq load-path (cons "~/.emacs.d/elisp" load-path))
+;;(setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 ;; ディレクトリをサブディレクトリごとload-pathに追加
 ;; https://qiita.com/icb54615/items/4c652ad4afccae5fe2ef
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-     (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-        (add-to-list 'load-path default-directory)
-         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-             (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp")
+;;(defun add-to-load-path (&rest paths)
+;;  (let (path)
+;;    (dolist (path paths paths)
+;;     (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+;;        (add-to-list 'load-path default-directory)
+;;         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+;;             (normal-top-level-add-subdirs-to-load-path))))))
+;;(add-to-load-path "elisp")
 
 ;;ファルパスからファイルを開く
 (ffap-bindings)
@@ -154,10 +162,16 @@
 ;; package
 
 ;;magit
+;; Install magit if not already installed
+;;(unless (package-installed-p 'magit)
+;;  (package-refresh-contents)
+;;  (package-install 'magit))
+
+(require 'magit)
 (global-set-key (kbd "C-x C-g") 'magit-status)
 
 ;;git-gutter
-(global-git-gutter-mode t)
+;;(global-git-gutter-mode t)
 
 ;;undo-tree
 (require 'undo-tree)
